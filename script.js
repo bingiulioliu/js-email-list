@@ -16,7 +16,24 @@ for (let i=0; i<10; i++){
             const mail = jsonData.response;
             // Ad ogni ciclo mi aggiunge una mail 
             mailListHtmlEl.innerHTML += `<li> ${mail} </li>`;
-            console.log(mailListHtmlEl);
-            
         })
     }
+console.log(mailListHtmlEl);
+
+function reFetch () {
+for (let i=0; i<10; i++){
+    fetch(API_URL_RANDOM_MAIL)
+        .then((risposta)=>{
+            return risposta.json()
+        })
+        .then ((jsonData)=>{
+            //console.log(jsonData);
+            // Variabile di supporto
+            const mail = jsonData.response;
+            // Ad ogni ciclo mi aggiunge una mail 
+            mailListHtmlEl.innerHTML += `<li> ${mail} </li>`;
+        })
+    }
+}
+
+fetchBtnHtmlEl.addEventListener('click', reFetch);
