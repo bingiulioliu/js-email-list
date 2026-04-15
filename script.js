@@ -5,6 +5,9 @@ const API_URL_RANDOM_MAIL = 'https://flynn.boolean.careers/exercises/api/random/
 const mailListHtmlEl = document.querySelector('#list-container');
 const fetchBtnHtmlEl = document.querySelector('#fetch-btn');
 
+// Codice ridondanta, posso toglierlo ed eseguire direttamente la funzione
+// reFetch(); Si esegue all'avvio
+/*
 for (let i=0; i<10; i++){
     fetch(API_URL_RANDOM_MAIL)
         .then((risposta)=>{
@@ -19,7 +22,7 @@ for (let i=0; i<10; i++){
         })
     }
 console.log(mailListHtmlEl);
-
+*/
 
 // Funzione dove libero la lista e ripeto il fetch
 function reFetch () {
@@ -39,4 +42,5 @@ function reFetch () {
     }
 }
 
+reFetch(); // Si esegue all'avvio così la prima parte di codice non serve che si ripeta
 fetchBtnHtmlEl.addEventListener('click', reFetch);
