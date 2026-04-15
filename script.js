@@ -20,19 +20,22 @@ for (let i=0; i<10; i++){
     }
 console.log(mailListHtmlEl);
 
+
+// Funzione dove libero la lista e ripeto il fetch
 function reFetch () {
-for (let i=0; i<10; i++){
-    fetch(API_URL_RANDOM_MAIL)
-        .then((risposta)=>{
-            return risposta.json()
-        })
-        .then ((jsonData)=>{
-            //console.log(jsonData);
-            // Variabile di supporto
-            const mail = jsonData.response;
-            // Ad ogni ciclo mi aggiunge una mail 
-            mailListHtmlEl.innerHTML += `<li> ${mail} </li>`;
-        })
+    mailListHtmlEl.innerHTML = '';
+    for (let i=0; i<10; i++){
+        fetch(API_URL_RANDOM_MAIL)
+            .then((risposta)=>{
+                return risposta.json()
+            })
+            .then ((jsonData)=>{
+                //console.log(jsonData);
+                // Variabile di supporto
+                const mail = jsonData.response;
+                // Ad ogni ciclo mi aggiunge una mail 
+                mailListHtmlEl.innerHTML += `<li> ${mail} </li>`;
+            })
     }
 }
 
